@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "id": "b225c292f16bdf74",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9639d127a5deb89f",
+        "type": "comment",
+        "z": "b225c292f16bdf74",
+        "name": "Credentials Encryption Key",
+        "info": "template-nodered-app-flows",
+        "x": 250,
+        "y": 100,
+        "wires": []
+    }
+]
