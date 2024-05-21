@@ -8,13 +8,95 @@
         "env": []
     },
     {
-        "id": "9639d127a5deb89f",
-        "type": "comment",
+        "id": "de1d7db035a99c28",
+        "type": "inject",
         "z": "b225c292f16bdf74",
-        "name": "Credentials Encryption Key",
-        "info": "template-nodered-app-flows",
-        "x": 250,
-        "y": 100,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "5675d617da1f79f7"
+            ]
+        ]
+    },
+    {
+        "id": "5675d617da1f79f7",
+        "type": "debug",
+        "z": "b225c292f16bdf74",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "${TEST}",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5a4a1b44cab7e0eb",
+        "type": "inject",
+        "z": "b225c292f16bdf74",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "720e8349f73ee023"
+            ]
+        ]
+    },
+    {
+        "id": "720e8349f73ee023",
+        "type": "debug",
+        "z": "b225c292f16bdf74",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "${EX_STRING_NR}",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 260,
         "wires": []
     }
 ]
