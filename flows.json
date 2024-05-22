@@ -1,6 +1,6 @@
 [
     {
-        "id": "b225c292f16bdf74",
+        "id": "7b32067a5f8bb535",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,9 +8,40 @@
         "env": []
     },
     {
-        "id": "de1d7db035a99c28",
+        "id": "7f05cc83bd3065f3",
+        "type": "mqtt-broker",
+        "name": "${BROKER-NAME}",
+        "broker": "${MQTT_BROKER_HOST}",
+        "port": "${MQTT_BROKER_PORT}",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "${MQTT_BROKER_BIRTH_TOPIC}",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "${MQTT_BROKER_BIRTH_PAYLOAD}",
+        "birthMsg": {},
+        "closeTopic": "${MQTT_BROKER_CLOSE_TOPIC}",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "${MQTT_BROKER_CLOSE_PAYLOAD}",
+        "closeMsg": {},
+        "willTopic": "${MQTT_BROKER_WILL_TOPIC}",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "${MQTT_BROKER_WILL_PAYLOAD}",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6e311185f895992e",
         "type": "inject",
-        "z": "b225c292f16bdf74",
+        "z": "7b32067a5f8bb535",
         "name": "",
         "props": [
             {
@@ -32,20 +63,20 @@
         "y": 160,
         "wires": [
             [
-                "5675d617da1f79f7"
+                "6e47c74c12b56e37"
             ]
         ]
     },
     {
-        "id": "5675d617da1f79f7",
+        "id": "6e47c74c12b56e37",
         "type": "debug",
-        "z": "b225c292f16bdf74",
+        "z": "7b32067a5f8bb535",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "${TEST}",
+        "complete": "${MQTT_BROKER_PORT}",
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
@@ -54,9 +85,9 @@
         "wires": []
     },
     {
-        "id": "5a4a1b44cab7e0eb",
+        "id": "aab5cbbbbea36328",
         "type": "inject",
-        "z": "b225c292f16bdf74",
+        "z": "7b32067a5f8bb535",
         "name": "",
         "props": [
             {
@@ -78,25 +109,73 @@
         "y": 260,
         "wires": [
             [
-                "720e8349f73ee023"
+                "8a40ed482027ed37"
             ]
         ]
     },
     {
-        "id": "720e8349f73ee023",
+        "id": "8a40ed482027ed37",
         "type": "debug",
-        "z": "b225c292f16bdf74",
+        "z": "7b32067a5f8bb535",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "${EX_STRING_NR}",
+        "complete": "${MQTT_BROKER_HOST}",
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
         "x": 420,
         "y": 260,
         "wires": []
+    },
+    {
+        "id": "a99b5ca6b5cad0bd",
+        "type": "mqtt out",
+        "z": "7b32067a5f8bb535",
+        "name": "Test Publish",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7f05cc83bd3065f3",
+        "x": 430,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cb9a28c0b05eff22",
+        "type": "inject",
+        "z": "7b32067a5f8bb535",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "${MQTT_BROKER_ROOT_TOPIC}/test",
+                "vt": "env"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "a99b5ca6b5cad0bd"
+            ]
+        ]
     }
 ]
