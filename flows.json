@@ -8,6 +8,169 @@
         "env": []
     },
     {
+        "id": "25904c37d97f7049",
+        "type": "tab",
+        "label": "File Management",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "eeab41effac093c9",
+        "type": "tab",
+        "label": "UI",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8b2d6d89dacb643d",
+        "type": "group",
+        "z": "25904c37d97f7049",
+        "name": "Create list of all stored files. Create files folder if it doesn't exist",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "023d2b354f72a26f",
+            "f1eebc0bd112b510",
+            "f721f808f081ae28",
+            "1ec37a74f149fc31",
+            "fe70d592225c6e6f",
+            "7ae6142c9e0fd453",
+            "1705c159be7b6141",
+            "e10399166ac73d81",
+            "4df3630f20e330d2",
+            "93611b9d30f35eb0"
+        ],
+        "x": 54,
+        "y": 59,
+        "w": 982,
+        "h": 262
+    },
+    {
+        "id": "27919c6f0e664230",
+        "type": "group",
+        "z": "25904c37d97f7049",
+        "name": "Remove Files Older than 30 Days",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f433d567ec8a71a3",
+            "d39af01a93379ac2",
+            "356325d61f4e77b4",
+            "eae2889c69ea7d95",
+            "40d2f357d75778fa",
+            "b5e4e53de4625602",
+            "20e1723b4f0ad1fd",
+            "afd89ac4605b3f47"
+        ],
+        "x": 54,
+        "y": 359,
+        "w": 1642,
+        "h": 82
+    },
+    {
+        "id": "a75ec6398c373e2b",
+        "type": "group",
+        "z": "25904c37d97f7049",
+        "name": "File Download",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f31a598d.9fd2c8",
+            "98261154.3006",
+            "34dc99e5.495466",
+            "38d65d59.1d8aa2",
+            "3b8014a.86ad8ec",
+            "5b18a8e7.fb8da8",
+            "67ecfa7f.3f0e24",
+            "a90b0fb2f1a38dd2"
+        ],
+        "x": 54,
+        "y": 659,
+        "w": 812,
+        "h": 262
+    },
+    {
+        "id": "decdaf84efb64a8c",
+        "type": "group",
+        "z": "25904c37d97f7049",
+        "name": "Remove All Files",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "d0af4ded1dd29e39",
+            "bc7e5e439aebd373",
+            "d7ae68d4ef1d9559",
+            "d5cfb8487aef50ec",
+            "49d08c68618d2416",
+            "9fb4fae48cf3e4f4",
+            "72d4473cf92b63bb"
+        ],
+        "x": 54,
+        "y": 479,
+        "w": 1192,
+        "h": 142
+    },
+    {
+        "id": "051423dcf8bf682c",
+        "type": "group",
+        "z": "eeab41effac093c9",
+        "name": "Display Files",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "cf222990c851d936",
+            "a9d5054359d9c090"
+        ],
+        "x": 134,
+        "y": 239,
+        "w": 292,
+        "h": 82
+    },
+    {
+        "id": "3face7d803044f37",
+        "type": "group",
+        "z": "eeab41effac093c9",
+        "name": "Delete All Files",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "7a42565809ab7334",
+            "6f4ae9e512800ade"
+        ],
+        "x": 134,
+        "y": 359,
+        "w": 302,
+        "h": 82
+    },
+    {
+        "id": "252fb1e6091721ac",
+        "type": "group",
+        "z": "eeab41effac093c9",
+        "name": "Upload Files",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "44c916c3020ab8d5",
+            "cc8b967aa3c0b0c2",
+            "3cd56ef11e2055d0",
+            "be74508df0ed2311",
+            "6ae7c0529bcc470e"
+        ],
+        "x": 134,
+        "y": 59,
+        "w": 692,
+        "h": 142
+    },
+    {
         "id": "7f05cc83bd3065f3",
         "type": "mqtt-broker",
         "name": "${BROKER-NAME}",
@@ -37,6 +200,66 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "33b28828e0f394e9",
+        "type": "ui-group",
+        "name": "Main",
+        "page": "033d16f8e6a968b4",
+        "width": "12",
+        "height": "3",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "033d16f8e6a968b4",
+        "type": "ui-page",
+        "name": "Main",
+        "ui": "2daa43f2ba1b1c32",
+        "path": "/main",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "c5ed292f3032aa43",
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "2daa43f2ba1b1c32",
+        "type": "ui-base",
+        "name": "UI Name",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-control",
+            "ui-notification"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    },
+    {
+        "id": "c5ed292f3032aa43",
+        "type": "ui-theme",
+        "name": "Coldfront Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
     },
     {
         "id": "6e311185f895992e",
@@ -177,5 +400,931 @@
                 "a99b5ca6b5cad0bd"
             ]
         ]
+    },
+    {
+        "id": "023d2b354f72a26f",
+        "type": "inject",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "fe70d592225c6e6f"
+            ]
+        ]
+    },
+    {
+        "id": "f1eebc0bd112b510",
+        "type": "catch",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "",
+        "scope": [
+            "7ae6142c9e0fd453"
+        ],
+        "uncaught": false,
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "f721f808f081ae28"
+            ]
+        ]
+    },
+    {
+        "id": "f721f808f081ae28",
+        "type": "switch",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "Error: no File folder",
+        "property": "error.message",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "ENOENT: no such file or directory",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "1705c159be7b6141"
+            ]
+        ]
+    },
+    {
+        "id": "1ec37a74f149fc31",
+        "type": "change",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "Clear Error",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "error",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 280,
+        "wires": [
+            [
+                "7ae6142c9e0fd453"
+            ]
+        ]
+    },
+    {
+        "id": "fe70d592225c6e6f",
+        "type": "change",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "Set File Folder",
+        "rules": [
+            {
+                "t": "set",
+                "p": "FileFolder",
+                "pt": "global",
+                "to": "/usr/src/node-red/files",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "7ae6142c9e0fd453"
+            ]
+        ]
+    },
+    {
+        "id": "e10399166ac73d81",
+        "type": "link in",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "List Files",
+        "links": [
+            "afd89ac4605b3f47",
+            "c3db2353062e9545",
+            "55e95b908d5558ed",
+            "e70604fd67585274",
+            "73467809b23afd91",
+            "9fb4fae48cf3e4f4",
+            "6ae7c0529bcc470e"
+        ],
+        "x": 425,
+        "y": 100,
+        "wires": [
+            [
+                "7ae6142c9e0fd453"
+            ]
+        ]
+    },
+    {
+        "id": "f433d567ec8a71a3",
+        "type": "inject",
+        "z": "25904c37d97f7049",
+        "g": "27919c6f0e664230",
+        "name": "",
+        "props": [
+            {
+                "p": "timestamp",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "356325d61f4e77b4"
+            ]
+        ]
+    },
+    {
+        "id": "eae2889c69ea7d95",
+        "type": "split",
+        "z": "25904c37d97f7049",
+        "g": "27919c6f0e664230",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 830,
+        "y": 400,
+        "wires": [
+            [
+                "d39af01a93379ac2"
+            ]
+        ]
+    },
+    {
+        "id": "40d2f357d75778fa",
+        "type": "change",
+        "z": "25904c37d97f7049",
+        "g": "27919c6f0e664230",
+        "name": "move files to payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "files",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "files",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 400,
+        "wires": [
+            [
+                "eae2889c69ea7d95"
+            ]
+        ]
+    },
+    {
+        "id": "20e1723b4f0ad1fd",
+        "type": "switch",
+        "z": "25904c37d97f7049",
+        "g": "27919c6f0e664230",
+        "name": "Older than 30 days?",
+        "property": "stats.ctimeMs",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "msg.timestamp - (30*24*60*60*1000)\t",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 400,
+        "wires": [
+            [
+                "b5e4e53de4625602"
+            ]
+        ],
+        "outputLabels": [
+            "Older"
+        ]
+    },
+    {
+        "id": "afd89ac4605b3f47",
+        "type": "link out",
+        "z": "25904c37d97f7049",
+        "g": "27919c6f0e664230",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "e10399166ac73d81"
+        ],
+        "x": 1655,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4df3630f20e330d2",
+        "type": "change",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "files",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 160,
+        "wires": [
+            [
+                "93611b9d30f35eb0"
+            ]
+        ]
+    },
+    {
+        "id": "93611b9d30f35eb0",
+        "type": "link out",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "cf222990c851d936"
+        ],
+        "x": 995,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f31a598d.9fd2c8",
+        "type": "function",
+        "z": "25904c37d97f7049",
+        "g": "a75ec6398c373e2b",
+        "name": "Check Valid URL",
+        "func": "let basePath = global.get(\"FileFolder\");\nlet fileName = msg.req.params.fileName;\n\n// Check for valid company and fileNames to prevent hacking\nif(fileName.includes(\"..\\\\\")){\n    msg.payload = \"Illegal file path\";\n    msg.statusCode = 405;//not allowed\n    return [null, msg];//fire output 2\n} else if(fileName.includes(\"../\")){\n    msg.payload = \"Illegal file path\";\n    msg.statusCode = 405;//not allowed\n    return [null, msg];//fire output 2\n} \n\n// Combine company and fileName with basePath to create complete path to file\nmsg.filename = basePath +  \"/\" + fileName;\nreturn [msg, null];//fire output 1\n\n\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 740,
+        "wires": [
+            [
+                "34dc99e5.495466"
+            ],
+            [
+                "98261154.3006"
+            ]
+        ],
+        "outputLabels": [
+            "Valid",
+            "Invalid"
+        ]
+    },
+    {
+        "id": "98261154.3006",
+        "type": "http response",
+        "z": "25904c37d97f7049",
+        "g": "a75ec6398c373e2b",
+        "name": "File RES",
+        "statusCode": "",
+        "headers": {},
+        "x": 780,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "34dc99e5.495466",
+        "type": "file in",
+        "z": "25904c37d97f7049",
+        "g": "a75ec6398c373e2b",
+        "name": "Read File",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 580,
+        "y": 740,
+        "wires": [
+            [
+                "98261154.3006",
+                "a90b0fb2f1a38dd2"
+            ]
+        ]
+    },
+    {
+        "id": "38d65d59.1d8aa2",
+        "type": "catch",
+        "z": "25904c37d97f7049",
+        "g": "a75ec6398c373e2b",
+        "name": "",
+        "scope": [
+            "67ecfa7f.3f0e24",
+            "34dc99e5.495466"
+        ],
+        "uncaught": false,
+        "x": 130,
+        "y": 820,
+        "wires": [
+            [
+                "3b8014a.86ad8ec",
+                "5b18a8e7.fb8da8"
+            ]
+        ]
+    },
+    {
+        "id": "3b8014a.86ad8ec",
+        "type": "function",
+        "z": "25904c37d97f7049",
+        "g": "a75ec6398c373e2b",
+        "name": "Set 404",
+        "func": "msg.payload = msg.error;\nmsg.statusCode = 404;//resource not found\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 820,
+        "wires": [
+            [
+                "98261154.3006"
+            ]
+        ]
+    },
+    {
+        "id": "5b18a8e7.fb8da8",
+        "type": "debug",
+        "z": "25904c37d97f7049",
+        "g": "a75ec6398c373e2b",
+        "name": "File Read Error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "67ecfa7f.3f0e24",
+        "type": "http in",
+        "z": "25904c37d97f7049",
+        "g": "a75ec6398c373e2b",
+        "name": "File REQ",
+        "url": "/files/:fileName",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 740,
+        "wires": [
+            [
+                "f31a598d.9fd2c8"
+            ]
+        ]
+    },
+    {
+        "id": "a90b0fb2f1a38dd2",
+        "type": "debug",
+        "z": "25904c37d97f7049",
+        "g": "a75ec6398c373e2b",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "d0af4ded1dd29e39",
+        "type": "inject",
+        "z": "25904c37d97f7049",
+        "g": "decdaf84efb64a8c",
+        "name": "",
+        "props": [
+            {
+                "p": "timestamp",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "bc7e5e439aebd373"
+            ]
+        ]
+    },
+    {
+        "id": "d7ae68d4ef1d9559",
+        "type": "split",
+        "z": "25904c37d97f7049",
+        "g": "decdaf84efb64a8c",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 830,
+        "y": 520,
+        "wires": [
+            [
+                "49d08c68618d2416"
+            ]
+        ]
+    },
+    {
+        "id": "d5cfb8487aef50ec",
+        "type": "change",
+        "z": "25904c37d97f7049",
+        "g": "decdaf84efb64a8c",
+        "name": "move files to payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "files",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "files",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 520,
+        "wires": [
+            [
+                "d7ae68d4ef1d9559"
+            ]
+        ]
+    },
+    {
+        "id": "9fb4fae48cf3e4f4",
+        "type": "link out",
+        "z": "25904c37d97f7049",
+        "g": "decdaf84efb64a8c",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "e10399166ac73d81"
+        ],
+        "x": 1205,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "72d4473cf92b63bb",
+        "type": "link in",
+        "z": "25904c37d97f7049",
+        "g": "decdaf84efb64a8c",
+        "name": "Delete All Files",
+        "links": [
+            "32f3227371b5567e",
+            "2eac61e35c5ba34e",
+            "6f4ae9e512800ade"
+        ],
+        "x": 175,
+        "y": 580,
+        "wires": [
+            [
+                "bc7e5e439aebd373"
+            ]
+        ]
+    },
+    {
+        "id": "b5e4e53de4625602",
+        "type": "fs-remove",
+        "z": "25904c37d97f7049",
+        "g": "27919c6f0e664230",
+        "path": "FileFolder",
+        "pathType": "global",
+        "filename": "payload",
+        "filenameType": "msg",
+        "recursive": false,
+        "exist": false,
+        "name": "Delete Old File",
+        "x": 1480,
+        "y": 400,
+        "wires": [
+            [
+                "afd89ac4605b3f47"
+            ]
+        ]
+    },
+    {
+        "id": "49d08c68618d2416",
+        "type": "fs-remove",
+        "z": "25904c37d97f7049",
+        "g": "decdaf84efb64a8c",
+        "path": "FileFolder",
+        "pathType": "global",
+        "filename": "payload",
+        "filenameType": "msg",
+        "recursive": false,
+        "exist": false,
+        "name": "Delete Old File",
+        "x": 1040,
+        "y": 520,
+        "wires": [
+            [
+                "9fb4fae48cf3e4f4"
+            ]
+        ]
+    },
+    {
+        "id": "1705c159be7b6141",
+        "type": "fs-mkdir",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "Create File Folder",
+        "purpose": "reg",
+        "path": "",
+        "pathType": "str",
+        "foldername": "FileFolder",
+        "foldernameType": "global",
+        "recursive": false,
+        "exists": false,
+        "prefix": "",
+        "prefixType": "str",
+        "mode": "777",
+        "property": "payload",
+        "propertyType": "msg",
+        "x": 650,
+        "y": 280,
+        "wires": [
+            [
+                "1ec37a74f149fc31"
+            ]
+        ]
+    },
+    {
+        "id": "7ae6142c9e0fd453",
+        "type": "fs-list",
+        "z": "25904c37d97f7049",
+        "g": "8b2d6d89dacb643d",
+        "name": "Get Array of Files",
+        "path": "FileFolder",
+        "pathType": "global",
+        "pattern": "*",
+        "patternType": "str",
+        "filter": "files",
+        "recursive": true,
+        "follow": true,
+        "property": "files",
+        "propertyType": "msg",
+        "x": 600,
+        "y": 160,
+        "wires": [
+            [
+                "4df3630f20e330d2"
+            ]
+        ]
+    },
+    {
+        "id": "356325d61f4e77b4",
+        "type": "fs-list",
+        "z": "25904c37d97f7049",
+        "g": "27919c6f0e664230",
+        "name": "Get Array of Files",
+        "path": "FileFolder",
+        "pathType": "global",
+        "pattern": "*",
+        "patternType": "str",
+        "filter": "files",
+        "recursive": true,
+        "follow": true,
+        "property": "files",
+        "propertyType": "msg",
+        "x": 360,
+        "y": 400,
+        "wires": [
+            [
+                "40d2f357d75778fa"
+            ]
+        ]
+    },
+    {
+        "id": "bc7e5e439aebd373",
+        "type": "fs-list",
+        "z": "25904c37d97f7049",
+        "g": "decdaf84efb64a8c",
+        "name": "Get Array of Files",
+        "path": "FileFolder",
+        "pathType": "global",
+        "pattern": "*",
+        "patternType": "str",
+        "filter": "files",
+        "recursive": true,
+        "follow": true,
+        "property": "files",
+        "propertyType": "msg",
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "d5cfb8487aef50ec"
+            ]
+        ]
+    },
+    {
+        "id": "d39af01a93379ac2",
+        "type": "fs-stats",
+        "z": "25904c37d97f7049",
+        "g": "27919c6f0e664230",
+        "name": "",
+        "path": "FileFolder",
+        "pathType": "global",
+        "filename": "payload",
+        "filenameType": "msg",
+        "attr": "basic",
+        "follow": true,
+        "property": "stats",
+        "propertyType": "msg",
+        "x": 1000,
+        "y": 400,
+        "wires": [
+            [
+                "20e1723b4f0ad1fd"
+            ]
+        ]
+    },
+    {
+        "id": "b85e1c770771210d",
+        "type": "comment",
+        "z": "25904c37d97f7049",
+        "name": "Example Flows for Managing Files.",
+        "info": "",
+        "x": 220,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "cf222990c851d936",
+        "type": "link in",
+        "z": "eeab41effac093c9",
+        "g": "051423dcf8bf682c",
+        "name": "Display Forecasts",
+        "links": [
+            "93611b9d30f35eb0"
+        ],
+        "x": 175,
+        "y": 280,
+        "wires": [
+            [
+                "a9d5054359d9c090"
+            ]
+        ]
+    },
+    {
+        "id": "a9d5054359d9c090",
+        "type": "ui-template",
+        "z": "eeab41effac093c9",
+        "g": "051423dcf8bf682c",
+        "group": "33b28828e0f394e9",
+        "page": "",
+        "ui": "",
+        "name": "Display Files",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <v-list>\n        <v-list-header>Files</v-list-header>\n\n        <v-divider></v-divider>\n\n        <v-list-item v-for=\"(file, i) in msg.files\" \n            v-bind:href=\"'/files/' + file\" \n            :key=\"i\" \n            :value=\"file\" \n            color=\"primary\" \n            variant=\"plain\"\n        >\n            <template v-slot:prepend>\n                <v-icon icon=\"mdi-file-document\"></v-icon>\n            </template>\n\n            <v-list-item-title v-text=\"file\"></v-list-item-title>\n        </v-list-item>\n    </v-list>\n</template>\n\n<script>\n    export default {\n        data() {\n            // define variables available component-wide\n            // (in <template> and component functions)\n            return {\n                items: [\n                    { text: 'Real-Time', icon: 'mdi-clock' },\n                    { text: 'Audience', icon: 'mdi-account' },\n                    { text: 'Conversions', icon: 'mdi-flag' },\n                ]\n            }\n        }\n    }\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 330,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "44c916c3020ab8d5",
+        "type": "ui-file-input",
+        "z": "eeab41effac093c9",
+        "g": "252fb1e6091721ac",
+        "group": "33b28828e0f394e9",
+        "name": "Upload File",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "label": "File Input",
+        "icon": "paperclip",
+        "allowMultiple": false,
+        "accept": "",
+        "className": "",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "cc8b967aa3c0b0c2"
+            ]
+        ]
+    },
+    {
+        "id": "cc8b967aa3c0b0c2",
+        "type": "function",
+        "z": "eeab41effac093c9",
+        "g": "252fb1e6091721ac",
+        "name": "Prep for Storage",
+        "func": "// Replace \"{{companyName}}\" and \"{{todaysDate}}\" in the file name template\nconst fileName = \"{{folder}}/{{filename}}\"\n                .replace(\"{{folder}}\", global.get(\"FileFolder\"))\n                .replace(/{{filename}}/g, msg.file.name);\n\n// Set the \"fileName\" property in the msg object\nmsg.fileName = fileName;\n\n// Return the modified msg object\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 160,
+        "wires": [
+            [
+                "be74508df0ed2311"
+            ]
+        ]
+    },
+    {
+        "id": "3cd56ef11e2055d0",
+        "type": "debug",
+        "z": "eeab41effac093c9",
+        "g": "252fb1e6091721ac",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "be74508df0ed2311",
+        "type": "file",
+        "z": "eeab41effac093c9",
+        "g": "252fb1e6091721ac",
+        "name": "",
+        "filename": "fileName",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 650,
+        "y": 160,
+        "wires": [
+            [
+                "6ae7c0529bcc470e",
+                "3cd56ef11e2055d0"
+            ]
+        ]
+    },
+    {
+        "id": "6ae7c0529bcc470e",
+        "type": "link out",
+        "z": "eeab41effac093c9",
+        "g": "252fb1e6091721ac",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "e10399166ac73d81"
+        ],
+        "x": 785,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7a42565809ab7334",
+        "type": "ui-button",
+        "z": "eeab41effac093c9",
+        "g": "3face7d803044f37",
+        "group": "33b28828e0f394e9",
+        "name": "",
+        "label": "Delete All Files",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 240,
+        "y": 400,
+        "wires": [
+            [
+                "6f4ae9e512800ade"
+            ]
+        ]
+    },
+    {
+        "id": "6f4ae9e512800ade",
+        "type": "link out",
+        "z": "eeab41effac093c9",
+        "g": "3face7d803044f37",
+        "name": "link out 8",
+        "mode": "link",
+        "links": [
+            "72d4473cf92b63bb"
+        ],
+        "x": 395,
+        "y": 400,
+        "wires": []
     }
 ]
