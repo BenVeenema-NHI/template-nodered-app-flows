@@ -1,1 +1,6 @@
-{}
+{
+    "df94e2eac4453683": {
+        "username": "${GP_DB_USER}",
+        "password": "${GP_DB_PASSWORD}"
+    }
+}
