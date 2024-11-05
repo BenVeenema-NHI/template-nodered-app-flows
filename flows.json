@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "ed708cff1f918b95",
+        "type": "tab",
+        "label": "Internal DB (Postgres)",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "8b2d6d89dacb643d",
         "type": "group",
         "z": "25904c37d97f7049",
@@ -287,6 +295,31 @@
         "parseJSON": false,
         "enableArithAbort": true,
         "readOnlyIntent": true
+    },
+    {
+        "id": "85494b0b87daa7c5",
+        "type": "postgreSQLConfig",
+        "name": "dbConnection",
+        "host": "${POSTGRES_DB_HOST}",
+        "hostFieldType": "str",
+        "port": "${POSTGRES_DB_PORT}",
+        "portFieldType": "num",
+        "database": "${POSTGRES_DB_NAME}",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "${APPLICATION_NAME}",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "${POSTGRES_NODERED_USER}",
+        "userFieldType": "str",
+        "password": "${POSTGRES_NODERED_PASSWORD}",
+        "passwordFieldType": "str"
     },
     {
         "id": "6e311185f895992e",
@@ -1485,5 +1518,59 @@
                 "fd7f842858f602af"
             ]
         ]
+    },
+    {
+        "id": "cfd2b24218455e49",
+        "type": "postgresql",
+        "z": "ed708cff1f918b95",
+        "name": "",
+        "query": "SELECT version()\n-- SELECT current_database()",
+        "postgreSQLConfig": "85494b0b87daa7c5",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "f41744cf36d2bb68"
+            ]
+        ]
+    },
+    {
+        "id": "407067b1e431b7ca",
+        "type": "inject",
+        "z": "ed708cff1f918b95",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "cfd2b24218455e49"
+            ]
+        ]
+    },
+    {
+        "id": "f41744cf36d2bb68",
+        "type": "debug",
+        "z": "ed708cff1f918b95",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 280,
+        "wires": []
     }
 ]
