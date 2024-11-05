@@ -24,6 +24,22 @@
         "env": []
     },
     {
+        "id": "3e797ecdf68518de",
+        "type": "tab",
+        "label": "GP SQL",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ed708cff1f918b95",
+        "type": "tab",
+        "label": "Internal DB (Postgres)",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "8b2d6d89dacb643d",
         "type": "group",
         "z": "25904c37d97f7049",
@@ -208,7 +224,7 @@
         "page": "033d16f8e6a968b4",
         "width": "12",
         "height": "3",
-        "order": 2,
+        "order": 1,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -260,6 +276,50 @@
             "groupBorderRadius": "4px",
             "widgetGap": "12px"
         }
+    },
+    {
+        "id": "df94e2eac4453683",
+        "type": "MSSQL-CN",
+        "tdsVersion": "7_3_A",
+        "name": "GP/NHI",
+        "server": "${GP_DB_SERVER}",
+        "port": "${GP_DB_PORT}",
+        "encyption": false,
+        "trustServerCertificate": false,
+        "database": "${GP_DB_NHI}",
+        "useUTC": true,
+        "connectTimeout": "15000",
+        "requestTimeout": "15000",
+        "cancelTimeout": "5000",
+        "pool": "5",
+        "parseJSON": false,
+        "enableArithAbort": true,
+        "readOnlyIntent": true
+    },
+    {
+        "id": "85494b0b87daa7c5",
+        "type": "postgreSQLConfig",
+        "name": "dbConnection",
+        "host": "${POSTGRES_DB_HOST}",
+        "hostFieldType": "str",
+        "port": "${POSTGRES_DB_PORT}",
+        "portFieldType": "num",
+        "database": "${POSTGRES_DB_NAME}",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "${APPLICATION_NAME}",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "${POSTGRES_NODERED_USER}",
+        "userFieldType": "str",
+        "password": "${POSTGRES_NODERED_PASSWORD}",
+        "passwordFieldType": "str"
     },
     {
         "id": "6e311185f895992e",
@@ -1168,7 +1228,7 @@
         "page": "",
         "ui": "",
         "name": "Display Files",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "head": "",
@@ -1191,7 +1251,7 @@
         "g": "252fb1e6091721ac",
         "group": "33b28828e0f394e9",
         "name": "Upload File",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "topic": "topic",
@@ -1291,7 +1351,7 @@
         "group": "33b28828e0f394e9",
         "name": "",
         "label": "Delete All Files",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -1325,6 +1385,192 @@
         ],
         "x": 395,
         "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4b4d55a3c8b7ca71",
+        "type": "MSSQL",
+        "z": "3e797ecdf68518de",
+        "mssqlCN": "df94e2eac4453683",
+        "name": "NHI Stock Levels",
+        "outField": "payload",
+        "returnType": 0,
+        "throwErrors": 1,
+        "query": "SELECT \r\n\tSBM.ITEMNMBR as product_code\r\n--\t,SBM.LOCNCODE\r\n\t,SBM.BIN as location_name\r\n\t,SBM.QUANTITY as quantity\r\n--\t,SBM.QTYTYPE\r\n--\t,SBM.*\r\n--\t,IM.*\r\n \r\nFROM NHI..IV00112 AS SBM\t--SITE BIN MASTER\r\n\tLEFT JOIN NHI..IV00101 AS IM ON IM.ITEMNMBR = SBM.ITEMNMBR\t--ITEM MASTER\r\n \r\nWHERE 1=1\r\n\tAND IM.ITEMTYPE <> 2\t--NO DISCONTINUED ITEMS\r\n\tAND SBM.QTYTYPE = 1\t\t--ONLY 'ON HAND' QTY TYPE\r\n\tAND SBM.LOCNCODE = 'NHI'\t--ONLY ITEMS IN NHI LOCATION\r\n\tAND SBM.QUANTITY <> 0\t-- NON-ZERO BIN QTY\r\n\tAND SBM.BIN NOT IN ('QC HOLD','RTS' )\t--EXCLUDE BINS IF NEEDED",
+        "modeOpt": "queryMode",
+        "modeOptType": "query",
+        "queryOpt": "payload",
+        "queryOptType": "editor",
+        "paramsOpt": "queryParams",
+        "paramsOptType": "none",
+        "rows": "rows",
+        "rowsType": "msg",
+        "parseMustache": true,
+        "params": [],
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "c04eca7e3c945f03"
+            ]
+        ]
+    },
+    {
+        "id": "ebb51f1a83171579",
+        "type": "inject",
+        "z": "3e797ecdf68518de",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "4b4d55a3c8b7ca71"
+            ]
+        ]
+    },
+    {
+        "id": "915b2a7650314361",
+        "type": "function",
+        "z": "3e797ecdf68518de",
+        "name": "Create XLSX",
+        "func": "// This function uses the xlsx npm package to convert a data-forge dataFrame to an XLSX file\n// Inputs: \n//      msg.dataFrame - This is assumed to be a serialized dataFrame which is produced by any data-forge node with an output\n//      msg.fileName - this is the name of the file to be saved with an absolute path (fully qualified). This must end in XLSX\n// Outputs:\n//      This function does not change any the msg object at all.\n\n// Get the data and column names from the dataFrame\nconst data = msg.dataFrame.values;\nconst columns = Object.keys(msg.dataFrame.columns);\n\n// Create the worksheet with the dataFrame data\nconst ws = XLSX.utils.json_to_sheet(data, { header: columns });\n\n// Create a workbook and insert the sheet into the workbook\nconst wb = XLSX.utils.book_new();\nXLSX.utils.book_append_sheet(wb, ws, \"Sheet1\");\n\n// Save the workbook\nXLSX.writeFile(wb, msg.fileName);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "XLSX",
+                "module": "xlsx"
+            }
+        ],
+        "x": 1050,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd7f842858f602af",
+        "type": "change",
+        "z": "3e797ecdf68518de",
+        "name": "Set FileName - Real",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fileName",
+                "pt": "msg",
+                "to": "\"/usr/src/node-red/exports/NHI-StockLevels.xlsx\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 140,
+        "wires": [
+            [
+                "915b2a7650314361"
+            ]
+        ]
+    },
+    {
+        "id": "c04eca7e3c945f03",
+        "type": "function",
+        "z": "3e797ecdf68518de",
+        "name": "Trim Whitespace",
+        "func": "// Many of the results contain whitespace. We want to trim this for the file.\n\n// Convert the raw query into a dataForge DataFrame\nconst df = new dataForge.DataFrame(msg.payload);\n\n// Use map to iterate over every row of the dataset. Then use forEach on the keys (column names) in each row, if the type of the row is a string, perform a trim\nconst trimmedDf = df.map(row => {\n    Object.keys(row).forEach(key => {\n        if (typeof row[key] === 'string') {\n            row[key] = row[key].trim();\n        }\n    });\n    return row;\n});\n\nmsg.payload = trimmedDf;\nmsg.dataFrame = trimmedDf.serialize();\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "dataForge",
+                "module": "data-forge"
+            }
+        ],
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "fd7f842858f602af"
+            ]
+        ]
+    },
+    {
+        "id": "cfd2b24218455e49",
+        "type": "postgresql",
+        "z": "ed708cff1f918b95",
+        "name": "",
+        "query": "SELECT version()\n-- SELECT current_database()",
+        "postgreSQLConfig": "85494b0b87daa7c5",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "f41744cf36d2bb68"
+            ]
+        ]
+    },
+    {
+        "id": "407067b1e431b7ca",
+        "type": "inject",
+        "z": "ed708cff1f918b95",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "cfd2b24218455e49"
+            ]
+        ]
+    },
+    {
+        "id": "f41744cf36d2bb68",
+        "type": "debug",
+        "z": "ed708cff1f918b95",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 280,
         "wires": []
     }
 ]
