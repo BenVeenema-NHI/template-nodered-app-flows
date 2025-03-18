@@ -187,6 +187,29 @@
         "h": 142
     },
     {
+        "id": "a209713e247a0813",
+        "type": "group",
+        "z": "eeab41effac093c9",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "aa385f7729f75c58",
+            "89340e0180f6427b",
+            "8a9f5a7b055210a9"
+        ],
+        "x": 134,
+        "y": 479,
+        "w": 652,
+        "h": 82
+    },
+    {
         "id": "7f05cc83bd3065f3",
         "type": "mqtt-broker",
         "name": "${BROKER-NAME}",
@@ -218,33 +241,6 @@
         "sessionExpiry": ""
     },
     {
-        "id": "33b28828e0f394e9",
-        "type": "ui-group",
-        "name": "Main",
-        "page": "033d16f8e6a968b4",
-        "width": "12",
-        "height": "3",
-        "order": 1,
-        "showTitle": true,
-        "className": "",
-        "visible": "true",
-        "disabled": "false"
-    },
-    {
-        "id": "033d16f8e6a968b4",
-        "type": "ui-page",
-        "name": "Main",
-        "ui": "2daa43f2ba1b1c32",
-        "path": "/main",
-        "icon": "home",
-        "layout": "grid",
-        "theme": "c5ed292f3032aa43",
-        "order": 1,
-        "className": "",
-        "visible": true,
-        "disabled": false
-    },
-    {
         "id": "2daa43f2ba1b1c32",
         "type": "ui-base",
         "name": "UI Name",
@@ -255,7 +251,6 @@
             "ui-notification"
         ],
         "showPathInSidebar": false,
-        "showPageTitle": true,
         "navigationStyle": "default",
         "titleBarStyle": "default"
     },
@@ -320,6 +315,33 @@
         "userFieldType": "str",
         "password": "${POSTGRES_NODERED_PASSWORD}",
         "passwordFieldType": "str"
+    },
+    {
+        "id": "033d16f8e6a968b4",
+        "type": "ui-page",
+        "name": "Main",
+        "ui": "2daa43f2ba1b1c32",
+        "path": "/main",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "c5ed292f3032aa43",
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "33b28828e0f394e9",
+        "type": "ui-group",
+        "name": "Main",
+        "page": "033d16f8e6a968b4",
+        "width": "12",
+        "height": "3",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
     },
     {
         "id": "6e311185f895992e",
@@ -457,9 +479,24 @@
         "y": 360,
         "wires": [
             [
-                "a99b5ca6b5cad0bd"
+                "a99b5ca6b5cad0bd",
+                "f9b1fc3cd90767b2"
             ]
         ]
+    },
+    {
+        "id": "f9b1fc3cd90767b2",
+        "type": "link out",
+        "z": "7b32067a5f8bb535",
+        "name": "Notify UI",
+        "mode": "link",
+        "links": [
+            "89340e0180f6427b"
+        ],
+        "x": 420,
+        "y": 320,
+        "wires": [],
+        "l": true
     },
     {
         "id": "023d2b354f72a26f",
@@ -587,10 +624,6 @@
         "name": "List Files",
         "links": [
             "afd89ac4605b3f47",
-            "c3db2353062e9545",
-            "55e95b908d5558ed",
-            "e70604fd67585274",
-            "73467809b23afd91",
             "9fb4fae48cf3e4f4",
             "6ae7c0529bcc470e"
         ],
@@ -1023,8 +1056,6 @@
         "g": "decdaf84efb64a8c",
         "name": "Delete All Files",
         "links": [
-            "32f3227371b5567e",
-            "2eac61e35c5ba34e",
             "6f4ae9e512800ade"
         ],
         "x": 175,
@@ -1365,6 +1396,16 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
         "x": 240,
         "y": 400,
         "wires": [
@@ -1386,6 +1427,75 @@
         "x": 395,
         "y": 400,
         "wires": []
+    },
+    {
+        "id": "aa385f7729f75c58",
+        "type": "ui-notification",
+        "z": "eeab41effac093c9",
+        "g": "a209713e247a0813",
+        "ui": "2daa43f2ba1b1c32",
+        "position": "center center",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "4",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "X",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "Update Notification",
+        "x": 670,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89340e0180f6427b",
+        "type": "link in",
+        "z": "eeab41effac093c9",
+        "g": "a209713e247a0813",
+        "name": "Show Notification",
+        "links": [
+            "f9b1fc3cd90767b2"
+        ],
+        "x": 240,
+        "y": 520,
+        "wires": [
+            [
+                "8a9f5a7b055210a9"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "8a9f5a7b055210a9",
+        "type": "change",
+        "z": "eeab41effac093c9",
+        "g": "a209713e247a0813",
+        "name": "Send to All",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "_client",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "aa385f7729f75c58"
+            ]
+        ]
     },
     {
         "id": "4b4d55a3c8b7ca71",
