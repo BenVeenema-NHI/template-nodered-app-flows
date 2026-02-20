@@ -382,6 +382,27 @@
         "h": 422
     },
     {
+        "id": "b61d33f7f38bbb35",
+        "type": "group",
+        "z": "eeab41effac093c9",
+        "name": "Display Log Messages",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "398f226e086a0f9a",
+            "0edf0c0d3d7407ee",
+            "660432379dfb2bcd",
+            "66981299ad620e1a",
+            "5a463ec30e46854f",
+            "f6aa505a1889f6b3"
+        ],
+        "x": 134,
+        "y": 599,
+        "w": 362,
+        "h": 182
+    },
+    {
         "id": "7f05cc83bd3065f3",
         "type": "mqtt-broker",
         "name": "${BROKER-NAME}",
@@ -473,6 +494,25 @@
         "passwordFieldType": "str"
     },
     {
+        "id": "23c066b394132339",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px",
+            "density": "default"
+        }
+    },
+    {
         "id": "033d16f8e6a968b4",
         "type": "ui-page",
         "name": "Main",
@@ -523,32 +563,13 @@
         "groupType": "default"
     },
     {
-        "id": "23c066b394132339",
-        "type": "ui-theme",
-        "name": "Default Theme",
-        "colors": {
-            "surface": "#ffffff",
-            "primary": "#0094CE",
-            "bgPage": "#eeeeee",
-            "groupBg": "#ffffff",
-            "groupOutline": "#cccccc"
-        },
-        "sizes": {
-            "pagePadding": "12px",
-            "groupGap": "12px",
-            "groupBorderRadius": "4px",
-            "widgetGap": "12px",
-            "density": "default"
-        }
-    },
-    {
         "id": "3920c7c0de651e22",
         "type": "ui-group",
         "name": "File Uploads",
         "page": "033d16f8e6a968b4",
         "width": "6",
         "height": "1",
-        "order": 2,
+        "order": 1,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -561,7 +582,20 @@
         "page": "033d16f8e6a968b4",
         "width": "6",
         "height": "1",
-        "order": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "2055bca8975509ad",
+        "type": "ui-group",
+        "name": "Logger",
+        "page": "033d16f8e6a968b4",
+        "width": "12",
+        "height": "4",
+        "order": 4,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -988,7 +1022,7 @@
         "g": "792ec7e99f3f6d90",
         "group": "3920c7c0de651e22",
         "name": "Partner Updates Upload",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "topic": "topic",
@@ -1013,7 +1047,7 @@
         "g": "792ec7e99f3f6d90",
         "group": "3920c7c0de651e22",
         "name": "Stock Locations Upload",
-        "order": 5,
+        "order": 4,
         "width": 0,
         "height": 0,
         "topic": "topic",
@@ -1039,7 +1073,7 @@
         "group": "6d32742813b9bc84",
         "name": "Get Partner Updates File",
         "label": "Get Partner Updates File",
-        "order": 3,
+        "order": 2,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -1083,7 +1117,7 @@
         "group": "6d32742813b9bc84",
         "name": "Get Stock Locations File",
         "label": "Get Stock Locations File",
-        "order": 5,
+        "order": 4,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -1126,7 +1160,7 @@
         "g": "792ec7e99f3f6d90",
         "group": "3920c7c0de651e22",
         "name": "Product Updates Upload",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "topic": "topic",
@@ -1152,7 +1186,7 @@
         "group": "6d32742813b9bc84",
         "name": "Get Product Updates File",
         "label": "Get Product Updates File",
-        "order": 4,
+        "order": 3,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -1831,7 +1865,6 @@
             "6ae7c0529bcc470e",
             "704b1e45f66208f6",
             "51f8e742e3e47946",
-            "9796e6238884fe8b",
             "fcc0dfb98db4d1f5",
             "78a558ba670b799c"
         ],
@@ -2704,6 +2737,128 @@
                 "aa385f7729f75c58"
             ]
         ]
+    },
+    {
+        "id": "660432379dfb2bcd",
+        "type": "change",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "Log",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Log message test",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "info",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "66981299ad620e1a"
+            ]
+        ]
+    },
+    {
+        "id": "66981299ad620e1a",
+        "type": "link out",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "link out 43",
+        "mode": "link",
+        "links": [
+            "0edf0c0d3d7407ee"
+        ],
+        "x": 455,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "398f226e086a0f9a",
+        "type": "ui-template",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "group": "2055bca8975509ad",
+        "page": "",
+        "ui": "",
+        "name": "Logger",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <v-card>\n    <v-card-title>Log Console</v-card-title>\n    <v-card-text>\n      <div ref=\"logContainer\" class=\"log-container\">\n        <v-list density=\"compact\">\n          <v-list-item v-for=\"(log, index) in logs\" :key=\"index\">\n            <v-list-item-content :style=\"{ color: getColor(log.color) }\">\n                {{ log.payload }}\n            </v-list-item-content>\n          </v-list-item>\n        </v-list>\n      </div>\n    </v-card-text>\n  </v-card>\n</template>\n\n<script>\n  export default {\n  data() {\n    return {\n      logs: [],\n      predefinedColors: {\n        debug: '#2196F3',\n        info: '#4CAF50',\n        warn: '#FFC107',\n        error: '#FF5252'\n      }\n    }\n  },\n  watch: {\n    msg: function(){\n      this.addLog(this.msg);\n    }\n  },\n  methods: {\n    addLog(log) {\n      this.send({addLog: log});\n      this.logs.push(log);\n      // Keep the scrollbar stuck to the bottom\n      this.$nextTick(() => {\n        const logContainer = this.$refs.logContainer;\n        if (logContainer.scrollHeight - logContainer.scrollTop === logContainer.clientHeight) {\n          logContainer.scrollTop = logContainer.scrollHeight;\n        }\n      });\n    },\n    getColor(color) {\n      return this.predefinedColors[color] || color;\n    }\n  }\n};\n</script>\n\n<style>\n  .log-container {\n    max-height: 300px;\n    overflow-y: auto;\n  }\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 340,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0edf0c0d3d7407ee",
+        "type": "link in",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "UI Log",
+        "links": [
+            "66981299ad620e1a"
+        ],
+        "x": 215,
+        "y": 740,
+        "wires": [
+            [
+                "398f226e086a0f9a"
+            ]
+        ]
+    },
+    {
+        "id": "5a463ec30e46854f",
+        "type": "inject",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "test",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 640,
+        "wires": [
+            [
+                "660432379dfb2bcd"
+            ]
+        ]
+    },
+    {
+        "id": "f6aa505a1889f6b3",
+        "type": "comment",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "colors",
+        "info": "debug\nwarn\ninfo\nerror",
+        "x": 310,
+        "y": 700,
+        "wires": []
     },
     {
         "id": "4b4d55a3c8b7ca71",
