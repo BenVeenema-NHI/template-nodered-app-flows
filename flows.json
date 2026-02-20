@@ -40,6 +40,135 @@
         "env": []
     },
     {
+        "id": "0b6aff2685dec042",
+        "type": "subflow",
+        "name": "XLSX Configuration",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [
+            {
+                "name": "Configuration",
+                "type": "str",
+                "value": "ConfigurationName_NoSpaces"
+            },
+            {
+                "name": "Sheets Definition",
+                "type": "json",
+                "value": "[{\"sheetDf\":\"Global.Context.Name\",\"columns\":[\"column1\",\"column2\"],\"sheetName\":\"sheetName\"}]"
+            },
+            {
+                "name": "File Name",
+                "type": "str",
+                "value": "File Name"
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99",
+        "icon": "node-red/leveldb.svg"
+    },
+    {
+        "id": "a168f21aa83326c9",
+        "type": "subflow",
+        "name": "Save Update File",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "8a57ce7465f3d80b"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1620,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "e4639da3eef5f3d1",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 360,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "8a57ce7465f3d80b",
+                        "port": 1
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "Configuration",
+                "type": "str",
+                "value": "ConfigurationName_NoSpaces"
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99",
+        "icon": "node-red/file-in.svg"
+    },
+    {
+        "id": "ee14efa3295d015b",
+        "type": "subflow",
+        "name": "Create Update File",
+        "info": "Creates an Excel (XLSX) file using the supplied configuration. No data needed from msg.\r\nInputs:\r\n - Sheet Configuration: Array of JSON objects representing sheets \r\n    {\r\n        sheetDf: Global Context location containing the DataForge Dataframe that will populate the sheet,\r\n        columns: Array of columns names. Must match the column names in the sheetDf,\r\n        sheetName: The name of the sheet\r\n    }\r\n - File Name: The name of the file to be saved. ex \"My File\". Do NOT include file extension\r\nOutputs:\r\n    This function does not change any the msg object at all.",
+        "category": "",
+        "in": [
+            {
+                "x": 100,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "396a8d7175f4368c"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 420,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "396a8d7175f4368c",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 420,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "396a8d7175f4368c",
+                        "port": 1
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "Configuration",
+                "type": "str",
+                "value": "ConfigurationName_NoSpaces"
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99",
+        "icon": "node-red/file-out.svg"
+    },
+    {
         "id": "8b2d6d89dacb643d",
         "type": "group",
         "z": "25904c37d97f7049",
@@ -187,6 +316,93 @@
         "h": 142
     },
     {
+        "id": "a209713e247a0813",
+        "type": "group",
+        "z": "eeab41effac093c9",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "aa385f7729f75c58",
+            "89340e0180f6427b",
+            "8a9f5a7b055210a9"
+        ],
+        "x": 134,
+        "y": 479,
+        "w": 652,
+        "h": 82
+    },
+    {
+        "id": "792ec7e99f3f6d90",
+        "type": "group",
+        "z": "7b32067a5f8bb535",
+        "name": "Configuration Files",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "8bd71ebb7dddf6f4",
+            "1996ead1d924399f",
+            "b473e732dfcacecb",
+            "704b1e45f66208f6",
+            "1508938fa428a713",
+            "51f8e742e3e47946",
+            "37f3f0d2de229980",
+            "cf10f2db301f7f8c",
+            "fcc0dfb98db4d1f5",
+            "906569ecfcbf55de",
+            "78a558ba670b799c",
+            "6bf51ad4905201b3",
+            "fc30f3fdd11a064b",
+            "7808de0429e50dd0",
+            "903896a9b3e4cef5",
+            "bed70e3ab5e6fdb7",
+            "98bff0a5add077c4",
+            "ba8788ea91f1434a",
+            "b39d8d4d92e353de",
+            "ee27414492d82037",
+            "8ad5aa3142538742",
+            "82faa3d1f0ac9d55",
+            "c4edb0e8d6caa93b",
+            "1709d52721104b4f",
+            "2b0b02edcd8db3a3",
+            "e353bdcdeb7484df",
+            "969d87ef61870f19",
+            "99c61f3a747348e8"
+        ],
+        "x": 124,
+        "y": 479,
+        "w": 1072,
+        "h": 422
+    },
+    {
+        "id": "b61d33f7f38bbb35",
+        "type": "group",
+        "z": "eeab41effac093c9",
+        "name": "Display Log Messages",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "398f226e086a0f9a",
+            "0edf0c0d3d7407ee",
+            "660432379dfb2bcd",
+            "66981299ad620e1a",
+            "5a463ec30e46854f",
+            "f6aa505a1889f6b3"
+        ],
+        "x": 134,
+        "y": 599,
+        "w": 362,
+        "h": 182
+    },
+    {
         "id": "7f05cc83bd3065f3",
         "type": "mqtt-broker",
         "name": "${BROKER-NAME}",
@@ -218,33 +434,6 @@
         "sessionExpiry": ""
     },
     {
-        "id": "33b28828e0f394e9",
-        "type": "ui-group",
-        "name": "Main",
-        "page": "033d16f8e6a968b4",
-        "width": "12",
-        "height": "3",
-        "order": 1,
-        "showTitle": true,
-        "className": "",
-        "visible": "true",
-        "disabled": "false"
-    },
-    {
-        "id": "033d16f8e6a968b4",
-        "type": "ui-page",
-        "name": "Main",
-        "ui": "2daa43f2ba1b1c32",
-        "path": "/main",
-        "icon": "home",
-        "layout": "grid",
-        "theme": "c5ed292f3032aa43",
-        "order": 1,
-        "className": "",
-        "visible": true,
-        "disabled": false
-    },
-    {
         "id": "2daa43f2ba1b1c32",
         "type": "ui-base",
         "name": "UI Name",
@@ -255,27 +444,10 @@
             "ui-notification"
         ],
         "showPathInSidebar": false,
-        "showPageTitle": true,
+        "headerContent": "page",
         "navigationStyle": "default",
-        "titleBarStyle": "default"
-    },
-    {
-        "id": "c5ed292f3032aa43",
-        "type": "ui-theme",
-        "name": "Coldfront Theme",
-        "colors": {
-            "surface": "#ffffff",
-            "primary": "#0094ce",
-            "bgPage": "#eeeeee",
-            "groupBg": "#ffffff",
-            "groupOutline": "#cccccc"
-        },
-        "sizes": {
-            "pagePadding": "12px",
-            "groupGap": "12px",
-            "groupBorderRadius": "4px",
-            "widgetGap": "12px"
-        }
+        "titleBarStyle": "default",
+        "notificationDisplayTime": 5
     },
     {
         "id": "df94e2eac4453683",
@@ -320,6 +492,373 @@
         "userFieldType": "str",
         "password": "${POSTGRES_NODERED_PASSWORD}",
         "passwordFieldType": "str"
+    },
+    {
+        "id": "23c066b394132339",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px",
+            "density": "default"
+        }
+    },
+    {
+        "id": "033d16f8e6a968b4",
+        "type": "ui-page",
+        "name": "Main",
+        "ui": "2daa43f2ba1b1c32",
+        "path": "/main",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "23c066b394132339",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "33b28828e0f394e9",
+        "type": "ui-group",
+        "name": "Main",
+        "page": "033d16f8e6a968b4",
+        "width": "12",
+        "height": "3",
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "3920c7c0de651e22",
+        "type": "ui-group",
+        "name": "File Uploads",
+        "page": "033d16f8e6a968b4",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "6d32742813b9bc84",
+        "type": "ui-group",
+        "name": "Generate Files",
+        "page": "033d16f8e6a968b4",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "2055bca8975509ad",
+        "type": "ui-group",
+        "name": "Logger",
+        "page": "033d16f8e6a968b4",
+        "width": "12",
+        "height": "4",
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "68bc09c632607b73",
+        "type": "inject",
+        "z": "0b6aff2685dec042",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "c8db46dc8b1ba0f7"
+            ]
+        ]
+    },
+    {
+        "id": "c8db46dc8b1ba0f7",
+        "type": "function",
+        "z": "0b6aff2685dec042",
+        "name": "Set Configuration",
+        "func": "const configurationName = env.get('Name');\nconst sheetConfig = env.get('Sheets Definition');\nconst fileName = env.get('File Name');\n\n// Create/Update Schema\nglobal.set(\n    String(\"Configurations.XLSX.\" + configurationName),\n    {\n        sheetConfig: sheetConfig,\n        fileName: fileName\n    });\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "XLSX",
+                "module": "xlsx"
+            }
+        ],
+        "x": 450,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9fc38fc43d63eda2",
+        "type": "book",
+        "z": "a168f21aa83326c9",
+        "name": "",
+        "raw": false,
+        "x": 390,
+        "y": 40,
+        "wires": [
+            [
+                "2ba8b845eb601e18"
+            ]
+        ]
+    },
+    {
+        "id": "2ba8b845eb601e18",
+        "type": "split",
+        "z": "a168f21aa83326c9",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "configuration.sheetConfig",
+        "x": 530,
+        "y": 40,
+        "wires": [
+            [
+                "0d59c61aa7928da7"
+            ]
+        ]
+    },
+    {
+        "id": "60337deef7e71c0f",
+        "type": "sheet",
+        "z": "a168f21aa83326c9",
+        "name": "",
+        "sheetName": "",
+        "x": 930,
+        "y": 40,
+        "wires": [
+            [
+                "25605a7e407491fe"
+            ]
+        ]
+    },
+    {
+        "id": "0d59c61aa7928da7",
+        "type": "change",
+        "z": "a168f21aa83326c9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "selectSheetName",
+                "pt": "msg",
+                "to": "configuration.sheetConfig.sheetName",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 40,
+        "wires": [
+            [
+                "60337deef7e71c0f"
+            ]
+        ]
+    },
+    {
+        "id": "25605a7e407491fe",
+        "type": "sheet-to-json",
+        "z": "a168f21aa83326c9",
+        "name": "JSON",
+        "raw": "false",
+        "range": "",
+        "header": "default",
+        "blankrows": false,
+        "x": 1070,
+        "y": 40,
+        "wires": [
+            [
+                "e00120b79ff02188"
+            ]
+        ]
+    },
+    {
+        "id": "e00120b79ff02188",
+        "type": "function",
+        "z": "a168f21aa83326c9",
+        "name": "Save Sheet to Global Context",
+        "func": "// Many of the results contain whitespace. We want to trim this for the file.\n\n// Convert the raw query into a dataForge DataFrame\nconst df = new dataForge.DataFrame(msg.payload);\n\n// Use map to iterate over every row of the dataset. Then use forEach on the keys (column names) in each row, if the type of the row is a string, perform a trim\nconst trimmedDf = df.map(row => {\n    Object.keys(row).forEach(key => {\n        if (typeof row[key] === 'string') {\n            row[key] = row[key].trim();\n        }\n    });\n    return row;\n});\n\nglobal.set(msg.configuration.sheetConfig.sheetDf, trimmedDf.serialize())\n\nmsg.payload = trimmedDf;\nmsg.dataFrame = trimmedDf.serialize();\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "dataForge",
+                "module": "data-forge"
+            }
+        ],
+        "x": 1290,
+        "y": 40,
+        "wires": [
+            [
+                "e4639da3eef5f3d1"
+            ]
+        ]
+    },
+    {
+        "id": "e4639da3eef5f3d1",
+        "type": "join",
+        "z": "a168f21aa83326c9",
+        "name": "",
+        "mode": "auto",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1510,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a57ce7465f3d80b",
+        "type": "function",
+        "z": "a168f21aa83326c9",
+        "name": "Load Configuration",
+        "func": "// Load the configuration\n//  We need to deep copy the configuration using a dynamic path.\n//  Change node allows dynamic path but only for shallow copy\n//  which causes the downstream split node to modify the configuration stored in Global Context\n\n// Load the configuration\nconst configurationPath = \"Configurations.XLSX\"\nconst configurationName = env.get(\"Configuration\")\nconst configuration = global.get([configurationPath, configurationName].join(\".\"));\n\n// Check if configuration exists\nif (typeof configuration === 'undefined') {\n    node.warn(configurationName + ' at ' + configurationPath + ' not found!');\n    return [null, msg];\n}\n\n// Make a Deep Copy of the configuration\nmsg.configuration = JSON.parse(JSON.stringify(configuration));\n\nreturn [msg, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 40,
+        "wires": [
+            [
+                "9fc38fc43d63eda2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bcc5cabb84f0b260",
+        "type": "function",
+        "z": "a168f21aa83326c9",
+        "name": "Print MSG",
+        "func": "node.warn(msg);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "396a8d7175f4368c",
+        "type": "function",
+        "z": "ee14efa3295d015b",
+        "name": "Create XLSX",
+        "func": "const configurationName = env.get('Configuration')\n\n// load the configuration\nconst config = global.get('Configurations.XLSX.' + configurationName);\n\n// Check if configuration exists\nif (typeof config === 'undefined') {\n    node.error(\"XLSX configuration: \" +  configurationName + ' not found in global context: Configurations.XLSX');\n    return [null, msg];\n}\n\n// Create a workbook to insert sheets into\nconst workbook = XLSX.utils.book_new();\n\n// Create Sheet\nconfig.sheetConfig.forEach(config => {\n    const sheetDf = global.get(config.sheetDf);\n    const sheetData = (typeof sheetDf !== 'undefined') ? sheetDf.values : []\n    const sheetColumns = config.columns\n    const sheet = XLSX.utils.json_to_sheet(sheetData, { header: sheetColumns });\n    XLSX.utils.book_append_sheet(workbook, sheet, config.sheetName);\n})\n\n// Save the workbook\nconst fileDir = global.get(\"Configurations.FileFolder\");\nXLSX.writeFile(workbook, fileDir + \"/\" + config.fileName + \".xlsx\");\n\nreturn [msg, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "XLSX",
+                "module": "xlsx"
+            }
+        ],
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [],
+            []
+        ]
     },
     {
         "id": "6e311185f895992e",
@@ -457,9 +996,744 @@
         "y": 360,
         "wires": [
             [
-                "a99b5ca6b5cad0bd"
+                "a99b5ca6b5cad0bd",
+                "f9b1fc3cd90767b2"
             ]
         ]
+    },
+    {
+        "id": "f9b1fc3cd90767b2",
+        "type": "link out",
+        "z": "7b32067a5f8bb535",
+        "name": "Notify UI",
+        "mode": "link",
+        "links": [
+            "89340e0180f6427b"
+        ],
+        "x": 420,
+        "y": 320,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "8bd71ebb7dddf6f4",
+        "type": "ui-file-input",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "group": "3920c7c0de651e22",
+        "name": "Partner Updates Upload",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "label": "Partner Updates ",
+        "icon": "excel",
+        "allowMultiple": false,
+        "accept": ".xlsx, .xls",
+        "className": "",
+        "x": 260,
+        "y": 560,
+        "wires": [
+            [
+                "98bff0a5add077c4"
+            ]
+        ]
+    },
+    {
+        "id": "1996ead1d924399f",
+        "type": "ui-file-input",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "group": "3920c7c0de651e22",
+        "name": "Stock Locations Upload",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "label": "Stock Locations",
+        "icon": "excel",
+        "allowMultiple": false,
+        "accept": ".xlsx, .xls",
+        "className": "",
+        "x": 260,
+        "y": 640,
+        "wires": [
+            [
+                "b39d8d4d92e353de"
+            ]
+        ]
+    },
+    {
+        "id": "b473e732dfcacecb",
+        "type": "ui-button",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "group": "6d32742813b9bc84",
+        "name": "Get Partner Updates File",
+        "label": "Get Partner Updates File",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "PartnerCorrections",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 780,
+        "wires": [
+            [
+                "bed70e3ab5e6fdb7"
+            ]
+        ]
+    },
+    {
+        "id": "704b1e45f66208f6",
+        "type": "link out",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "link out 53",
+        "mode": "link",
+        "links": [
+            "e10399166ac73d81"
+        ],
+        "x": 665,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "1508938fa428a713",
+        "type": "ui-button",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "group": "6d32742813b9bc84",
+        "name": "Get Stock Locations File",
+        "label": "Get Stock Locations File",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 860,
+        "wires": [
+            [
+                "903896a9b3e4cef5"
+            ]
+        ]
+    },
+    {
+        "id": "51f8e742e3e47946",
+        "type": "link out",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "link out 54",
+        "mode": "link",
+        "links": [
+            "e10399166ac73d81"
+        ],
+        "x": 665,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "37f3f0d2de229980",
+        "type": "ui-file-input",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "group": "3920c7c0de651e22",
+        "name": "Product Updates Upload",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "label": "Product Updates",
+        "icon": "excel",
+        "allowMultiple": false,
+        "accept": ".xlsx, .xls",
+        "className": "",
+        "x": 260,
+        "y": 600,
+        "wires": [
+            [
+                "8ad5aa3142538742"
+            ]
+        ]
+    },
+    {
+        "id": "cf10f2db301f7f8c",
+        "type": "ui-button",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "group": "6d32742813b9bc84",
+        "name": "Get Product Updates File",
+        "label": "Get Product Updates File",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 820,
+        "wires": [
+            [
+                "fc30f3fdd11a064b"
+            ]
+        ]
+    },
+    {
+        "id": "fcc0dfb98db4d1f5",
+        "type": "link out",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "link out 67",
+        "mode": "link",
+        "links": [
+            "e10399166ac73d81"
+        ],
+        "x": 665,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "906569ecfcbf55de",
+        "type": "ui-button",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "group": "6d32742813b9bc84",
+        "name": "Get Accounting Updates File",
+        "label": "Get Accounting Updates File",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 270,
+        "y": 740,
+        "wires": [
+            [
+                "7808de0429e50dd0"
+            ]
+        ]
+    },
+    {
+        "id": "78a558ba670b799c",
+        "type": "link out",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "link out 68",
+        "mode": "link",
+        "links": [
+            "e10399166ac73d81"
+        ],
+        "x": 665,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "6bf51ad4905201b3",
+        "type": "ui-file-input",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "group": "3920c7c0de651e22",
+        "name": "Accounting Updates Upload",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "label": "Accounting Updates",
+        "icon": "excel",
+        "allowMultiple": false,
+        "accept": ".xlsx, .xls",
+        "className": "",
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "c4edb0e8d6caa93b"
+            ]
+        ]
+    },
+    {
+        "id": "fc30f3fdd11a064b",
+        "type": "subflow:ee14efa3295d015b",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "ProductUpdates",
+                "type": "str"
+            },
+            {
+                "name": "Sheet Configuration",
+                "value": "[{\"sheetDf\":\"Products.Mantis-NonCEMADf\",\"columns\":[\"product_name\"],\"sheetName\":\"Mantis Non-CEMA\"},{\"sheetDf\":\"Products.SharedDf\",\"columns\":[\"product_name\"],\"sheetName\":\"Shared Products\"},{\"sheetDf\":\"Products.SubcontractedDf\",\"columns\":[\"product_name\",\"subcontractor_name\"],\"sheetName\":\"Subcontracted Products\"}]",
+                "type": "json"
+            },
+            {
+                "name": "File Name",
+                "value": "Product Updates",
+                "type": "str"
+            }
+        ],
+        "x": 520,
+        "y": 820,
+        "wires": [
+            [
+                "fcc0dfb98db4d1f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7808de0429e50dd0",
+        "type": "subflow:ee14efa3295d015b",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "AccountingUpdates",
+                "type": "str"
+            },
+            {
+                "name": "Sheet Configuration",
+                "value": "[{\"sheetDf\":\"Accounting.AddAccountsDf\",\"columns\":[\"code\",\"name\",\"type\",\"currency\",\"balance\"],\"sheetName\":\"Add Accounts\"}]",
+                "type": "json"
+            },
+            {
+                "name": "File Name",
+                "value": "Accounting Updates",
+                "type": "str"
+            }
+        ],
+        "x": 520,
+        "y": 740,
+        "wires": [
+            [
+                "78a558ba670b799c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "903896a9b3e4cef5",
+        "type": "subflow:ee14efa3295d015b",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "StockLocations",
+                "type": "str"
+            },
+            {
+                "name": "Sheet Configuration",
+                "value": "[{\"sheetDf\":\"StockLocations.RowLocationDf\",\"columns\":[\"row\",\"location\"],\"sheetName\":\"Row Location Map\"},{\"sheetDf\":\"StockLocations.ArchiveDf\",\"columns\":[\"bin\"],\"sheetName\":\"Archive\"}]",
+                "type": "json"
+            },
+            {
+                "name": "File Name",
+                "value": "Stock Locations",
+                "type": "str"
+            }
+        ],
+        "x": 520,
+        "y": 860,
+        "wires": [
+            [
+                "51f8e742e3e47946"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bed70e3ab5e6fdb7",
+        "type": "subflow:ee14efa3295d015b",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "PartnerUpdates",
+                "type": "str"
+            },
+            {
+                "name": "Sheet Configuration",
+                "value": "[{\"sheetDf\":\"Partners.EmployeesDf\",\"columns\":[\"external_id\",\"name\"],\"sheetName\":\"Employees\"},{\"sheetDf\":\"Partners.ArchiveDf\",\"columns\":[\"external_id\",\"name\"],\"sheetName\":\"Archive\"},{\"sheetDf\":\"Partners.MantisOnlyDf\",\"columns\":[\"external_id\",\"name\"],\"sheetName\":\"Mantis Only\"}]",
+                "type": "json"
+            },
+            {
+                "name": "File Name",
+                "value": "Partner Updates",
+                "type": "str"
+            }
+        ],
+        "x": 520,
+        "y": 780,
+        "wires": [
+            [
+                "704b1e45f66208f6"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "98bff0a5add077c4",
+        "type": "subflow:a168f21aa83326c9",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "PartnerUpdates",
+                "type": "str"
+            },
+            {
+                "name": "File Name",
+                "value": "Partner Updates",
+                "type": "str"
+            }
+        ],
+        "x": 510,
+        "y": 560,
+        "wires": [
+            [
+                "ba8788ea91f1434a"
+            ],
+            [
+                "ba8788ea91f1434a"
+            ]
+        ]
+    },
+    {
+        "id": "ba8788ea91f1434a",
+        "type": "debug",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "debug 50",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "b39d8d4d92e353de",
+        "type": "subflow:a168f21aa83326c9",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "StockLocations",
+                "type": "str"
+            },
+            {
+                "name": "File Name",
+                "value": "Stock Locations",
+                "type": "str"
+            }
+        ],
+        "x": 510,
+        "y": 640,
+        "wires": [
+            [
+                "ee27414492d82037"
+            ],
+            [
+                "ee27414492d82037"
+            ]
+        ]
+    },
+    {
+        "id": "ee27414492d82037",
+        "type": "debug",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "debug 51",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "8ad5aa3142538742",
+        "type": "subflow:a168f21aa83326c9",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "ProductUpdates",
+                "type": "str"
+            },
+            {
+                "name": "File Name",
+                "value": "Product Updates",
+                "type": "str"
+            }
+        ],
+        "x": 510,
+        "y": 600,
+        "wires": [
+            [
+                "82faa3d1f0ac9d55"
+            ],
+            [
+                "82faa3d1f0ac9d55"
+            ]
+        ]
+    },
+    {
+        "id": "82faa3d1f0ac9d55",
+        "type": "debug",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "debug 52",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c4edb0e8d6caa93b",
+        "type": "subflow:a168f21aa83326c9",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "AccountingUpdates",
+                "type": "str"
+            },
+            {
+                "name": "File Name",
+                "value": "Accounting Updates",
+                "type": "str"
+            }
+        ],
+        "x": 510,
+        "y": 520,
+        "wires": [
+            [
+                "1709d52721104b4f"
+            ],
+            [
+                "1709d52721104b4f"
+            ]
+        ]
+    },
+    {
+        "id": "1709d52721104b4f",
+        "type": "debug",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "debug 53",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "2b0b02edcd8db3a3",
+        "type": "subflow:0b6aff2685dec042",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "Partner Updates Configuration",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "PartnerUpdates",
+                "type": "str"
+            },
+            {
+                "name": "Sheets Definition",
+                "value": "[{\"sheetDf\":\"Partners.EmployeesDf\",\"columns\":[\"external_id\",\"name\"],\"sheetName\":\"Employees\"},{\"sheetDf\":\"Partners.ArchiveDf\",\"columns\":[\"external_id\",\"name\"],\"sheetName\":\"Archive\"},{\"sheetDf\":\"Partners.MantisOnlyDf\",\"columns\":[\"external_id\",\"name\"],\"sheetName\":\"Mantis Only\"}]",
+                "type": "json"
+            },
+            {
+                "name": "File Name",
+                "value": "Partner Updates",
+                "type": "str"
+            },
+            {
+                "name": "Name",
+                "value": "PartnerUpdates",
+                "type": "str"
+            }
+        ],
+        "x": 1010,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e353bdcdeb7484df",
+        "type": "subflow:0b6aff2685dec042",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "Stock Locations Configuration",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "StockLocations",
+                "type": "str"
+            },
+            {
+                "name": "Sheets Definition",
+                "value": "[{\"sheetDf\":\"StockLocations.RowLocationDf\",\"columns\":[\"row\",\"location\"],\"sheetName\":\"Row Location Map\"},{\"sheetDf\":\"StockLocations.ArchiveDf\",\"columns\":[\"bin\"],\"sheetName\":\"Archive\"}]",
+                "type": "json"
+            },
+            {
+                "name": "File Name",
+                "value": "Stock Locations",
+                "type": "str"
+            },
+            {
+                "name": "Name",
+                "value": "StockLocations",
+                "type": "str"
+            }
+        ],
+        "x": 1010,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "969d87ef61870f19",
+        "type": "subflow:0b6aff2685dec042",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "Product Updates Configuration",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "ProductUpdates",
+                "type": "str"
+            },
+            {
+                "name": "Sheets Definition",
+                "value": "[{\"sheetDf\":\"Products.Mantis-NonCEMADf\",\"columns\":[\"product_name\"],\"sheetName\":\"Mantis Non-CEMA\"},{\"sheetDf\":\"Products.SharedDf\",\"columns\":[\"product_name\"],\"sheetName\":\"Shared Products\"},{\"sheetDf\":\"Products.SubcontractedDf\",\"columns\":[\"product_name\",\"subcontractor_name\"],\"sheetName\":\"Subcontracted Products\"}]",
+                "type": "json"
+            },
+            {
+                "name": "File Name",
+                "value": "Product Updates",
+                "type": "str"
+            },
+            {
+                "name": "Name",
+                "value": "ProductUpdates",
+                "type": "str"
+            }
+        ],
+        "x": 1020,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "99c61f3a747348e8",
+        "type": "subflow:0b6aff2685dec042",
+        "z": "7b32067a5f8bb535",
+        "g": "792ec7e99f3f6d90",
+        "name": "Accounting Updates Configuration",
+        "env": [
+            {
+                "name": "Configuration",
+                "value": "AccountingUpdates",
+                "type": "str"
+            },
+            {
+                "name": "Sheets Definition",
+                "value": "[{\"sheetDf\":\"Accounting.AddAccountsDf\",\"columns\":[\"code\",\"name\",\"type\",\"currency\",\"balance\"],\"sheetName\":\"Add Accounts\"}]",
+                "type": "json"
+            },
+            {
+                "name": "File Name",
+                "value": "Accounting Updates",
+                "type": "str"
+            },
+            {
+                "name": "Name",
+                "value": "AccountingUpdates",
+                "type": "str"
+            }
+        ],
+        "x": 1030,
+        "y": 520,
+        "wires": []
     },
     {
         "id": "023d2b354f72a26f",
@@ -560,7 +1834,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "FileFolder",
+                "p": "Configurations.FileFolder",
                 "pt": "global",
                 "to": "/usr/src/node-red/files",
                 "tot": "str"
@@ -587,12 +1861,12 @@
         "name": "List Files",
         "links": [
             "afd89ac4605b3f47",
-            "c3db2353062e9545",
-            "55e95b908d5558ed",
-            "e70604fd67585274",
-            "73467809b23afd91",
             "9fb4fae48cf3e4f4",
-            "6ae7c0529bcc470e"
+            "6ae7c0529bcc470e",
+            "704b1e45f66208f6",
+            "51f8e742e3e47946",
+            "fcc0dfb98db4d1f5",
+            "78a558ba670b799c"
         ],
         "x": 425,
         "y": 100,
@@ -772,7 +2046,7 @@
         "z": "25904c37d97f7049",
         "g": "a75ec6398c373e2b",
         "name": "Check Valid URL",
-        "func": "let basePath = global.get(\"FileFolder\");\nlet fileName = msg.req.params.fileName;\n\n// Check for valid company and fileNames to prevent hacking\nif(fileName.includes(\"..\\\\\")){\n    msg.payload = \"Illegal file path\";\n    msg.statusCode = 405;//not allowed\n    return [null, msg];//fire output 2\n} else if(fileName.includes(\"../\")){\n    msg.payload = \"Illegal file path\";\n    msg.statusCode = 405;//not allowed\n    return [null, msg];//fire output 2\n} \n\n// Combine company and fileName with basePath to create complete path to file\nmsg.filename = basePath +  \"/\" + fileName;\nreturn [msg, null];//fire output 1\n\n\n",
+        "func": "let basePath = global.get(\"Configurations.FileFolder\");\nlet fileName = msg.req.params.fileName;\n\n// Check for valid company and fileNames to prevent hacking\nif(fileName.includes(\"..\\\\\")){\n    msg.payload = \"Illegal file path\";\n    msg.statusCode = 405;//not allowed\n    return [null, msg];//fire output 2\n} else if(fileName.includes(\"../\")){\n    msg.payload = \"Illegal file path\";\n    msg.statusCode = 405;//not allowed\n    return [null, msg];//fire output 2\n} \n\n// Combine company and fileName with basePath to create complete path to file\nmsg.filename = basePath +  \"/\" + fileName;\nreturn [msg, null];//fire output 1\n\n\n",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -1023,8 +2297,6 @@
         "g": "decdaf84efb64a8c",
         "name": "Delete All Files",
         "links": [
-            "32f3227371b5567e",
-            "2eac61e35c5ba34e",
             "6f4ae9e512800ade"
         ],
         "x": 175,
@@ -1040,7 +2312,7 @@
         "type": "fs-remove",
         "z": "25904c37d97f7049",
         "g": "27919c6f0e664230",
-        "path": "FileFolder",
+        "path": "Configurations.FileFolder",
         "pathType": "global",
         "filename": "payload",
         "filenameType": "msg",
@@ -1060,7 +2332,7 @@
         "type": "fs-remove",
         "z": "25904c37d97f7049",
         "g": "decdaf84efb64a8c",
-        "path": "FileFolder",
+        "path": "Configurations.FileFolder",
         "pathType": "global",
         "filename": "payload",
         "filenameType": "msg",
@@ -1084,7 +2356,7 @@
         "purpose": "reg",
         "path": "",
         "pathType": "str",
-        "foldername": "FileFolder",
+        "foldername": "Configurations.FileFolder",
         "foldernameType": "global",
         "recursive": false,
         "exists": false,
@@ -1107,7 +2379,7 @@
         "z": "25904c37d97f7049",
         "g": "8b2d6d89dacb643d",
         "name": "Get Array of Files",
-        "path": "FileFolder",
+        "path": "Configurations.FileFolder",
         "pathType": "global",
         "pattern": "*",
         "patternType": "str",
@@ -1130,7 +2402,7 @@
         "z": "25904c37d97f7049",
         "g": "27919c6f0e664230",
         "name": "Get Array of Files",
-        "path": "FileFolder",
+        "path": "Configurations.FileFolder",
         "pathType": "global",
         "pattern": "*",
         "patternType": "str",
@@ -1153,7 +2425,7 @@
         "z": "25904c37d97f7049",
         "g": "decdaf84efb64a8c",
         "name": "Get Array of Files",
-        "path": "FileFolder",
+        "path": "Configurations.FileFolder",
         "pathType": "global",
         "pattern": "*",
         "patternType": "str",
@@ -1176,7 +2448,7 @@
         "z": "25904c37d97f7049",
         "g": "27919c6f0e664230",
         "name": "",
-        "path": "FileFolder",
+        "path": "Configurations.FileFolder",
         "pathType": "global",
         "filename": "payload",
         "filenameType": "msg",
@@ -1275,7 +2547,7 @@
         "z": "eeab41effac093c9",
         "g": "252fb1e6091721ac",
         "name": "Prep for Storage",
-        "func": "// Replace \"{{companyName}}\" and \"{{todaysDate}}\" in the file name template\nconst fileName = \"{{folder}}/{{filename}}\"\n                .replace(\"{{folder}}\", global.get(\"FileFolder\"))\n                .replace(/{{filename}}/g, msg.file.name);\n\n// Set the \"fileName\" property in the msg object\nmsg.fileName = fileName;\n\n// Return the modified msg object\nreturn msg;",
+        "func": "// Replace \"{{companyName}}\" and \"{{todaysDate}}\" in the file name template\nconst fileName = \"{{folder}}/{{filename}}\"\n                .replace(\"{{folder}}\", global.get(\"Configurations.FileFolder\"))\n                .replace(/{{filename}}/g, msg.file.name);\n\n// Set the \"fileName\" property in the msg object\nmsg.fileName = fileName;\n\n// Return the modified msg object\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1365,6 +2637,16 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
         "x": 240,
         "y": 400,
         "wires": [
@@ -1385,6 +2667,197 @@
         ],
         "x": 395,
         "y": 400,
+        "wires": []
+    },
+    {
+        "id": "aa385f7729f75c58",
+        "type": "ui-notification",
+        "z": "eeab41effac093c9",
+        "g": "a209713e247a0813",
+        "ui": "2daa43f2ba1b1c32",
+        "position": "center center",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "4",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "X",
+        "allowConfirm": false,
+        "confirmText": "Confirm",
+        "raw": false,
+        "className": "",
+        "name": "Update Notification",
+        "x": 670,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89340e0180f6427b",
+        "type": "link in",
+        "z": "eeab41effac093c9",
+        "g": "a209713e247a0813",
+        "name": "Show Notification",
+        "links": [
+            "f9b1fc3cd90767b2"
+        ],
+        "x": 240,
+        "y": 520,
+        "wires": [
+            [
+                "8a9f5a7b055210a9"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "8a9f5a7b055210a9",
+        "type": "change",
+        "z": "eeab41effac093c9",
+        "g": "a209713e247a0813",
+        "name": "Send to All",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "_client",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 520,
+        "wires": [
+            [
+                "aa385f7729f75c58"
+            ]
+        ]
+    },
+    {
+        "id": "660432379dfb2bcd",
+        "type": "change",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "Log",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Log message test",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "info",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "66981299ad620e1a"
+            ]
+        ]
+    },
+    {
+        "id": "66981299ad620e1a",
+        "type": "link out",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "link out 43",
+        "mode": "link",
+        "links": [
+            "0edf0c0d3d7407ee"
+        ],
+        "x": 455,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "398f226e086a0f9a",
+        "type": "ui-template",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "group": "2055bca8975509ad",
+        "page": "",
+        "ui": "",
+        "name": "Logger",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <v-card>\n    <v-card-title>Log Console</v-card-title>\n    <v-card-text>\n      <div ref=\"logContainer\" class=\"log-container\">\n        <v-list density=\"compact\">\n          <v-list-item v-for=\"(log, index) in logs\" :key=\"index\">\n            <v-list-item-content :style=\"{ color: getColor(log.color) }\">\n                {{ log.payload }}\n            </v-list-item-content>\n          </v-list-item>\n        </v-list>\n      </div>\n    </v-card-text>\n  </v-card>\n</template>\n\n<script>\n  export default {\n  data() {\n    return {\n      logs: [],\n      predefinedColors: {\n        debug: '#2196F3',\n        info: '#4CAF50',\n        warn: '#FFC107',\n        error: '#FF5252'\n      }\n    }\n  },\n  watch: {\n    msg: function(){\n      this.addLog(this.msg);\n    }\n  },\n  methods: {\n    addLog(log) {\n      this.send({addLog: log});\n      this.logs.push(log);\n      // Keep the scrollbar stuck to the bottom\n      this.$nextTick(() => {\n        const logContainer = this.$refs.logContainer;\n        if (logContainer.scrollHeight - logContainer.scrollTop === logContainer.clientHeight) {\n          logContainer.scrollTop = logContainer.scrollHeight;\n        }\n      });\n    },\n    getColor(color) {\n      return this.predefinedColors[color] || color;\n    }\n  }\n};\n</script>\n\n<style>\n  .log-container {\n    max-height: 300px;\n    overflow-y: auto;\n  }\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 340,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0edf0c0d3d7407ee",
+        "type": "link in",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "UI Log",
+        "links": [
+            "66981299ad620e1a"
+        ],
+        "x": 215,
+        "y": 740,
+        "wires": [
+            [
+                "398f226e086a0f9a"
+            ]
+        ]
+    },
+    {
+        "id": "5a463ec30e46854f",
+        "type": "inject",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "test",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 640,
+        "wires": [
+            [
+                "660432379dfb2bcd"
+            ]
+        ]
+    },
+    {
+        "id": "f6aa505a1889f6b3",
+        "type": "comment",
+        "z": "eeab41effac093c9",
+        "g": "b61d33f7f38bbb35",
+        "name": "colors",
+        "info": "debug\nwarn\ninfo\nerror",
+        "x": 310,
+        "y": 700,
         "wires": []
     },
     {
@@ -1477,7 +2950,7 @@
                 "t": "set",
                 "p": "fileName",
                 "pt": "msg",
-                "to": "\"/usr/src/node-red/exports/NHI-StockLevels.xlsx\"",
+                "to": "$globalContext(\"Configurations.FileFolder\")&\"/\"&\"NHI-StockLevels.xlsx\"",
                 "tot": "jsonata"
             }
         ],
@@ -1545,7 +3018,7 @@
         "props": [],
         "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "x": 270,
